@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+}
+
+body { @apply bg-slate-950 font-sans text-slate-100 antialiased; }
+
+/* Registered as a real utility so it works in class="" and inside @apply */
+@utility focus-ring {
+  &:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+}
+
+.field { @apply focus-ring w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
